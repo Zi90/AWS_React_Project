@@ -1,0 +1,284 @@
+@font-face {
+    font-family: '런드리고딕 Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2403-2@1.0/TTLaundryGothicB.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+.projectList {
+    font-family: '런드리고딕 Regular';
+    margin: 20px;
+}
+.header{
+    position: relative;
+    padding-top: 30px;
+}
+.title{
+    font-family: '런드리고딕 Regular';
+    font-size: 40px;
+    /* text 그라데이션 */
+    background: linear-gradient(to top ,#FEAC5E, #C779D0, #4BC0C8);
+    color: transparent;
+    -webkit-background-clip: text;
+    margin: 10px 50px;
+}
+img{
+    position: absolute; 
+}
+h2 {
+    text-align: center;
+    color: #667eea;
+}
+table {
+    width: 1024px;
+    border-collapse: collapse;
+    margin: 20px auto;
+}
+.lock{
+    color: gray;
+}
+.subTitle{
+    background: linear-gradient(to right top, #12c2e975, #c471ed7a, #f64f5a8c);
+}
+.subTitle>th{
+    color: #764ba2;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+.center{
+    text-align: center;
+}
+th {
+    color: #333;
+}
+td>a:link{
+    color: #667eea;
+}
+td>a:visited{
+    color: #667eea;
+}
+tr:nth-child(even) {
+    background-color: #F9F9F9;
+}
+tr:hover {
+    background: linear-gradient(to right, rgba(135, 207, 235, 0.452), rgba(255, 192, 203, 0.479));
+    color: #667eea;
+    font-weight: 700;
+}
+table {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+.textButton{
+    width: 150px;
+    height: 60px;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: '런드리고딕 Regular';
+    /* border 그라데이션 - button */
+    border: 1px solid transparent;
+    border-radius: 20px;
+    background-image: linear-gradient(to right top, #12c2e975, #c471ed7a, #f64f5a8c);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+}
+.textButton:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+}
+.textButton:active {
+    transform: scale(0.95);
+}
+
+/* ProjectDetail */
+a{
+    text-decoration-line: none;
+}
+.projectDetailContainer{
+    font-family: '런드리고딕 Regular';
+    margin: 40px;
+}
+.projectDetailProject button{
+    width: 150px;
+    height: 60px;
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    /* border 그라데이션 - button */
+    border: 1px solid transparent;
+    border-radius: 20px;
+    background-image: linear-gradient(to right top, #12c2e975, #c471ed7a, #f64f5a8c);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+}
+button>a{
+    color: white;
+}
+.projectDetailProject button:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+}
+.projectDetailProject button:active {
+    transform: scale(0.95);
+}
+.projectDetailContainer{
+    margin: 0 auto;
+    padding: 30px 20px;
+    width: 1000px;
+    border: 2px solid pink;
+    border-radius: 15px;
+    color: #333;
+}
+.answerSpan{
+    border: 2px solid skyblue;
+}
+.projectDetailContainer>span{
+    padding: 20px 20px 10px 5px;
+}
+.projectDetailContainer>div{
+    margin: 20px 0 20px 0;
+}
+.bold{
+    font-size: 15px;
+    font-weight: bold;
+}
+.QA{
+    width: 1000px;
+    margin: 30px 0 5px 160px;
+    font-family: '런드리고딕 Regular';
+    font-size: 40px;
+    font-weight: 450;
+    text-align: left;
+    /* text 그라데이션 */
+    background: linear-gradient(to top ,#FEAC5E, #C779D0, #4BC0C8);
+    color: transparent;
+    -webkit-background-clip: text;
+}
+
+/* ProjectRegister */
+.content{
+    width: 1024px;
+    margin: 0 auto;
+    /* border 그라데이션 */
+    border: 2px solid transparent;
+    border-radius: 15px;
+    background-image: linear-gradient(#fff, #fff), linear-gradient(to right top, #12c2e975, #c471ed7a, #f64f5a8c);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+}
+.content>.content-box{
+    font-family: '런드리고딕 Regular';
+    width: 150px;
+    height: 45px;
+    padding: 10px;
+    border: 3px solid pink;
+    border-radius: 20px;
+    outline: none;
+    font-size: 15px;
+    font-weight: 500;
+    margin: 10px 20px 10px 33px;
+}
+.content>.content-box:first-child{
+    margin-left: 34px;
+}
+.content>.content-box:nth-child(2){
+    width: 250px;
+    border: 3px solid skyblue;
+}
+.content>div>.content-box{
+    font-family: '런드리고딕 Regular';
+    width: 800px;
+    height: 300px;
+    padding: 10px;
+    border: 1px solid pink;
+    outline: none;
+    font-size: 15px;
+    font-weight: 500;
+    margin: 10px;
+}
+.contentContainer{
+    background-color: rgba(255, 192, 203, 0.322)
+}
+.projectRegister button{
+    font-family: '런드리고딕 Regular';
+    width: 150px;
+    height: 60px;
+    color: white;
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: 700;
+    /* border 그라데이션 - button */
+    border: 1px solid transparent;
+    border-radius: 20px;
+    background-image: linear-gradient(to right top, #12c2e975, #c471ed7a, #f64f5a8c);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+}
+.projectRegister button:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+}
+.projectRegister button:active {
+    transform: scale(0.95);
+}
+
+/* ProjectAnswer */
+.projectDetailProject{
+    width: 1280px;
+    margin: 50px auto;
+}
+.projectDetailProject>.projectDetailContainer>.contentContainer{
+    width: 800px;
+    height: 150px;
+    padding: 10px;
+    color: #333;
+    border: 1px solid pink;
+    outline: none;
+    font-size: 15px;
+    font-weight: 500;
+    margin: 10px;
+}
+.projectDetailContainer>.contentContainer{
+    background-color: rgba(255, 192, 203, 0.322)
+}
+.projectDetailProject>.projectDetailContainer2>.contentContainer2{
+    width: 800px;
+    height: 100px;
+    padding: 10px;
+    color: #333;
+    border: 1px solid skyblue;
+    outline: none;
+    font-size: 15px;
+    font-weight: 500;
+    margin: 10px;
+}
+.projectDetailContainer2>.contentContainer2{
+    background-color: rgb(135, 206, 235, 0.322)
+}
+.projectDetailContainer2{
+    margin: 20px auto;
+    padding: 30px 20px;
+    width: 1000px;
+    border: 2px solid skyblue;
+    border-radius: 15px;
+    color: #333;
+}
+
+/* 여러 가지 */
+.lock-radio{
+    width: 135px;
+    margin: 0 auto;
+    font-family: '런드리고딕 Regular';
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.lock-radio input{
+    accent-color: skyblue;
+    margin-top: 10px;
+}
+input[type=radio] {
+    zoom: 1.5;    
+}
