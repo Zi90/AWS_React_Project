@@ -5,7 +5,7 @@ import '../component/project-style.css';
 import ProjectDetail from './ProjectDetail';
 import ProjectRegister from './ProjectRegister';
 import ProjectModify from './ProjectModify';
-import ProjectAnswer from './ProjectAnswer';
+import ProjectPass from './ProjectPass';
 import pink from '../img/pink.jpg';
 
 const ProjectHome = () => {
@@ -20,9 +20,11 @@ const ProjectHome = () => {
                     <Route path='/' element={<ProjectList/>}/>
                     <Route path='/list' element={<ProjectList/>}/>
                     <Route path="/detail/:id" element={<ProjectDetail/>} />
+                    <Route path='/comments/:id' element={<ProjectDetail/>}/>
+                    <Route path='/comments/:postId' element={<ProjectDetail/>}/>
                     <Route path='/register' element={<ProjectRegister/>}/>
                     <Route path='/modify/:id' element={<ProjectModify/>}/>
-                    <Route path='/answer/:id' element={<ProjectAnswer/>}/>
+                    <Route path='/pass/:id' element={<ProjectPass/>}/>
                 </Routes>
             </BrowserRouter>
         </div>

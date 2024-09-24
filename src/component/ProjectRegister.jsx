@@ -46,6 +46,15 @@ const ProjectRegister = () => {
         }
     }
 
+    // radio value
+    const onChangeRadio = (e) => {
+        setProject({
+            ...project,
+            [e.target.name] : e.target.value
+        }); 
+        console.log(project);
+        };
+
     return (
         <div className='projectRegister'>
             <h2>Register Page</h2>
@@ -60,11 +69,11 @@ const ProjectRegister = () => {
                 <label for="default">
                     <label>
                     공개
-                    <input name="default" id="default" type="radio" checked/>
+                    <input name="lock_type" id="default" value='공개' type="radio" onChange={onChangeRadio} checked={project.lock_type === '공개'}/>
                     </label>
                     <label>
                     비공개
-                    <input name="default" type="radio"/>
+                    <input name="lock_type" value='비공개' type="radio" onChange={onChangeRadio} checked={project.lock_type === '비공개'}/>
                     </label>
                 </label>
             </div>

@@ -35,6 +35,7 @@ const ProjectModify = () => {
             ...mod,
             [name]:value
         });
+        console.log(mod);
     };
 
     const onSubmit = async () => {
@@ -61,14 +62,23 @@ const ProjectModify = () => {
         }
     };
 
+    // radio value
+    const onChangeRadio = (e) => {
+        setMod({
+            ...mod,
+            [e.target.name] : e.target.value
+        });
+        console.log(e.target.value); 
+        };
+
     if(mod != null){
         return (
             <div className='projectRegister'>
             <h2>Modify Page</h2>
             <div className='content'>
-                <input type="text" className='content-box' name='reg_date' value={reg_date.substring(0, reg_date.indexOf("T"))}/>
-                <input type="text" className='content-box' name='title' placeholder='Title' value={title} onChange={onChange}/>
                 <input type="text" className='content-box' name='writer' placeholder='Writer' value={writer} onChange={onChange}/>
+                <input type="text" className='content-box' name='title' placeholder='Title' value={title} onChange={onChange}/>
+                <input type="text" className='content-box' name='reg_date' value={reg_date.substring(0, reg_date.indexOf("T"))}/>
                 <div className='contentContainer'>
                 <textarea type="text" className='content-box' name='contents' placeholder='Contents' value={contents} onChange={onChange}/>
                 </div>
@@ -77,11 +87,11 @@ const ProjectModify = () => {
                 <label for="default">
                     <label>
                     공개
-                    <input name="default" id="default" type="radio" checked/>
+                    <input name="lock_type" value='공개' id="default" type="radio" onChange={onChangeRadio} checked={mod.lock_type === '공개'}/>
                     </label>
                     <label>
                     비공개
-                    <input name="default" type="radio"/>
+                    <input name="lock_type" value='비공개' type="radio" onChange={onChangeRadio} checked={mod.lock_type === '비공개'}/>
                     </label>
                 </label>
             </div>

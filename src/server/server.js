@@ -82,10 +82,10 @@ app.post('/insert', (req, res) => {
     // 파라미터 가져오기 requset.body
     // const board = req.body;
     // board.title
-    const { title, writer, contents } = req.body;
+    const { title, writer, contents, lock_type } = req.body;
 
-    const sql = 'insert into project(title, writer, contents) value (?,?,?)';
-    db.query(sql, [title, writer, contents], (err, data) => {
+    const sql = 'insert into project(title, writer, contents, lock_type) value (?,?,?,?)';
+    db.query(sql, [title, writer, contents, lock_type], (err, data) => {
         if(!err){
             // res.send("OK");
             res.sendStatus(200); // 전송 잘됨
@@ -119,10 +119,10 @@ app.post('/modify/:id', (req, res) => {
     // board.title
     const id = req.params.id;
 
-    const { title, writer, contents } = req.body;
+    const { title, writer, contents, lock_type } = req.body;
 
-    const sql = `update project set title=?, writer=?, contents=? where id=?`;
-    db.query(sql, [title, writer, contents, id], (err, data) => {
+    const sql = `update project set title=?, writer=?, contents=?, lock_type=? where id=?`;
+    db.query(sql, [title, writer, contents, lock_type, id], (err, data) => {
         if(!err){
             // res.send("OK");
             res.sendStatus(200); // 전송 잘됨
@@ -148,13 +148,13 @@ app.post('/delete/:id', (req, res) => {
     })
 });
 
-// answer 등록 및 수정-불러오기
-app.get('/answer/:id', (req, res) => {
+// 댓글 - 불러오기
+app.get('/comments/:postId', (req, res) => {
     // 파라미터 가져오기
-    const id = req.params.id;
-    console.log(`/answer/${id}`);
-    const sql = `select * from project where id = ${id}`;
-    db.query(sql, (err, data) => {
+    const postId = req.params.postId;
+    // console.log(`/comments/${postId}`);
+    const sql = `select * from comments where post_id = ? ORDER BY created_at ASC`;
+    db.query(sql, [postId],(err, data) => {
         if(!err){
             res.send(data);
         }else{
@@ -164,20 +164,59 @@ app.get('/answer/:id', (req, res) => {
     })
 });
 
-// answer - 저장
-app.post('/answer/:id', (req, res) => {
-    // 파라미터 가져오기 requset.body
-    // const board = req.body;
-    // board.title
-    const id = req.params.id;
+// 댓글 등록
+app.post('/comments', (req, res) => {
+    const { postId, user, content } = req.body;
 
-    const { answer } = req.body;
-
-    const sql = `update project set answer=? where id = ?`;
-    db.query(sql, [answer, id], (err, data) => {
+    const sql = 'insert into comments(post_id, user, content) value (?,?,?)';
+    db.query(sql, [ postId, user, content], (err, data) => {
         if(!err){
             // res.send("OK");
             res.sendStatus(200); // 전송 잘됨
+        }else{
+            console.log(err);
+            res.send("전송오류");
+        }
+    })
+});
+
+// 댓글 - 삭제
+app.delete('/comments/:id', (req, res) => {
+    const id = req.params.id;
+    const sql = 'DELETE FROM comments WHERE id = ?';
+    db.query(sql, [id], (err, data) => {
+        if (!err) {
+            res.sendStatus(200); // 댓글 삭제 성공
+        } else {
+            console.log(err);
+            res.send('전송오류');
+        }
+    });
+});
+
+//조회수
+app.post('/views/:id', (req, res) => {
+    const id = req.params.id;
+    const sql = `update project set views = views + 1 where id = ${id}`;
+    console.log(`/views/${id}`);
+    db.query(sql, (err, data)=>{
+        if(!err){
+            res.send(data);
+        }else{
+            console.log(err);
+            res.send('전송오류');
+        }
+    })
+});
+
+// 비밀번호 - 불러오기
+app.get('/password/:id', (req, res) => {
+    // 파라미터 가져오기
+    const id = req.params.id;
+    const sql = `select password from comments where id = ?`;
+    db.query(sql, [id],(err, data) => {
+        if(!err){
+            res.send(data);
         }else{
             console.log(err);
             res.send("전송오류");
